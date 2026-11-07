@@ -460,6 +460,8 @@ db.collection("queue").orderBy("number", "asc").onSnapshot((snapshot) => {
 
 /* ---------- 방문자 본인 티켓 자동 발급 및 관리 ---------- */
 async function initVisitorTicket() {
+  if (isAdmin) return;
+
   let myId = localStorage.getItem(MY_ID_KEY);
   
   if (!myId) {
@@ -471,7 +473,7 @@ async function initVisitorTicket() {
 
     await db.collection("queue").doc(myId).set({
       number: nextNum,
-      text: `${nextNum}번 방문자 (나)`,
+      text: `${nextNum}번 방문자`,
       status: 'waiting',
       createdAt: firebase.firestore.FieldValue.serverTimestamp()
     });
@@ -610,6 +612,11 @@ function adminLogin() {
   if (pw === null) return;
   if (pw === ADMIN_PASSWORD) {
     isAdmin = true;
+
+    // 내 대기 번호 카드 숨김 & 방문자 로컬 정보 제거
+    document.getElementById('myTicketCard').style.display = 'none';
+    localStorage.removeItem(MY_ID_KEY);
+
     document.getElementById('adminTools').style.display = 'block';
     document.getElementById('loginBtn').style.display = 'none';
     document.getElementById('adminNote').textContent = '✅ 운영자 모드로 로그인되었습니다.';
