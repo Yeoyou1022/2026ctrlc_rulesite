@@ -315,7 +315,7 @@
 
     <!-- 운영자 관리 도구 -->
     <div class="admin-bar" id="adminBar">
-      <button class="btn btn-primary" id="loginBtn" onclick="adminLogin()">🔐 운영자 로그인 (메인 태블릿용)</button>
+      <button class="btn btn-primary" id="loginBtn" onclick="adminLogin()">🔐 운영자 로그인 </button>
       <span class="admin-note" id="adminNote">운영자만 전체 대기열을 관리할 수 있습니다.</span>
     </div>
 
@@ -329,18 +329,18 @@
         <input type="text" id="newEntry" placeholder="예: 3반 김OO" onkeydown="if(event.key==='Enter') addEntry()">
         <button class="btn btn-primary" onclick="addEntry()">추가</button>
       </div>
-      <h3 style="margin: 24px 0 10px; color: var(--main-dark);">📋 전체 대기 순서 목록 (관리자 뷰)</h3>
+      <h3 style="margin: 24px 0 10px; color: var(--main-dark);">📋 전체 대기 순서 목록 </h3>
       <div id="adminEntryList"></div>
     </div>
   </section>
 
   <!-- 1게임규칙 -->
   <section id="g1" class="page">
-    <h2>1번 게임 — 전선 연결</h2>
+    <h2>1번 게임 — 전구켜기</h2>
     <div class="card">
       <span class="badge">GAME 1</span>
-      <p><strong>게임 규칙:</strong> 전선을 정확하게 연결하여 <strong>발광다이오드(LED)에 불빛이 켜지면 성공</strong>입니다.</p>
-      <p style="margin-top:10px;">회로를 올바르게 완성해 LED를 점등시켜 보세요!</p>
+      <p><strong>게임 규칙:</strong>5개의 스위치를 눌러<strong>3개의 전구에 불빛이 켜지면 성공</strong>입니다.</p>
+      <p style="margin-top:10px;">스위치를 순서대로 눌러 모든 전구를 켜보세요!</p>
     </div>
   </section>
 
